@@ -10,7 +10,7 @@ const MessagesPanel = () => {
 	const messagesDivRef = useRef(null);
 
 	useEffect(() => {
-		socket.current = new WebSocket(`wss://bis-api.online/messages/ws/${params.chat_id}`);
+		socket.current = new WebSocket(`ws://127.0.0.1:5000/messages/ws/${params.chat_id}`);
 
 		socket.current.onopen = () => {
 			console.log("Соединение установлено");

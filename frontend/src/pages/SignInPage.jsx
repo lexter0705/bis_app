@@ -11,7 +11,7 @@ const SignInPage = () => {
 
 
 	const handleRegister = () => {
-		fetch(`https://bis-api.online/users/signup/${name}`, {method: 'POST'})
+		fetch(`http://127.0.0.1:5000/users/signup/${name}`, {method: 'POST'})
 			.then((response) => {
 				console.log(response);
 				return response.json()
