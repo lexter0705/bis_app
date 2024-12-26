@@ -9,11 +9,16 @@ services:
     depends_on:
       - backend
       - frontend
+    networks:
+      - dev
 
   frontend:
     build: 
       context: ./frontend
-      
+    networks:
+      - dev
   backend:
     build: 
       context: ./backend
+    networks:
+      - dev
