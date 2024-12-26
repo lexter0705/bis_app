@@ -8,6 +8,7 @@ class Base(DeclarativeBase):
 
 
 class MessageTypes(Base):
+    __tablename__ = 'message_types'
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
 
