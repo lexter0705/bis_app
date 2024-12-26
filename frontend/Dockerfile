@@ -1,9 +1,12 @@
-FROM node:alpine as build
-
-COPY package.json package.json 
-
-RUN npm install
-
+FROM node:lts-alpine as build
+WORKDIR /app
+COPY package.json ./
+RUN npm i
 COPY . .
+RUN npm run build
 
-CMD ["npm", "start"]
+FROM nginx:latest as prod
+COPY --from=build /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 443
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
