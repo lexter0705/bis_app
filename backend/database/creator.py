@@ -59,7 +59,7 @@ class Stickers(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     pack_id: Mapped[str] = mapped_column(ForeignKey('pack.id'))
     image_path: Mapped[str]
-    pack: Mapped[StickerPacks] = relationship(UserTable, backref=backref("children", cascade="all,delete"))
+    pack: Mapped[StickerPacks] = relationship(StickerPacks, backref=backref("children", cascade="all,delete"))
 
 
 class ReactionTypes(Base):
@@ -74,7 +74,7 @@ class Reactions:
     reaction_type: Mapped[int] = mapped_column(ForeignKey('message.id'))
     from_user_id: Mapped[int] = mapped_column(ForeignKey('message.id'))
     message_id: Mapped[str] = mapped_column(ForeignKey('message.id'))
-    message: Mapped[MessageTable] = relationship(MessageTypes, backref=backref("children", cascade="all,delete"))
+    message: Mapped[MessageTable] = relationship(MessageTable, backref=backref("children", cascade="all,delete"))
     user: Mapped[UserTable] = relationship(UserTable, backref=backref("children", cascade="all,delete"))
     reaction: Mapped[ReactionTypes] = relationship(ReactionTypes, backref=backref("children", cascade="all,delete"))
 
