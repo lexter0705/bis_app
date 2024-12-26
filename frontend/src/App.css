@@ -1,0 +1,462 @@
+/*Не влезай, убьёт!!!*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("./images/ChatBackground.png");
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.CopyAddressButton{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #292929;
+    font-size: 10px ;
+}
+
+
+.TopChatPagePanel {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 96%;
+    background-color: #292929;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ExitButton {
+    background-image: url("./images/out.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.AddChatComponent {
+    display: flex;
+    gap: 5px;
+    width: 85%;
+    background-color: #292929;
+    color: white;
+}
+
+#AddChatInput {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #0D0D0D;
+    border-radius: 5px 0 0 5px;
+    background-color: #292929;
+    color: white;
+}
+
+#AddChatInput:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#AddChatButton {
+    width: calc(30% - 20px);
+    padding: 8px;
+    font-size: 14px;
+    background-color: #3e79ff;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.ChatList {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+
+.Chat {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #292929;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: #3e79ff;
+    }
+}
+
+.ChatPage {
+    display: block;
+    height: 100vh;
+}
+
+.TopChatPanel {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 96%;
+    background-color: #292929;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ToChatListButton {
+    background-image: url("./images/arrow.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.ChatIdName {
+font-size: 12px;
+    color: white;
+}
+
+#CallButton{
+    background-image: url("./images/CallButtonIcon.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    margin: 0;
+}
+
+.MessagesPanel {
+    min-height: 87.48vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-image: url("./images/ChatBackground.png");
+}
+
+.Message {
+    white-space: pre-wrap; /* Учитывать пробелы и переносы строк */
+    word-wrap: break-word; /* Переносить длинные слова */
+    margin: 2%;
+}
+
+.user_message {
+    align-self: flex-end;
+    background-color: #3e79ff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: left;
+    padding-inline: 2%;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+}
+
+.interlocutor_message {
+    align-self: flex-start;
+    background-color:#ffffff;
+    color: #000000;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: left  ;
+    padding-inline: 2%;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+}
+
+.InputPanel {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    width: 96%;
+    background-color: #292929;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.UploadedFile{
+    position: fixed;
+    bottom: 6% ;
+    z-index: 1001;
+    width: 96%;
+    background-color: #555;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.FileIcon{
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.FileName{
+    color: white;
+}
+
+.DeleteFileButton{
+    background-image: url("./images/Trash.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#MessageInput {
+    height: 30px;
+    border: none;
+    width: 100%;
+    background-color: #292929;
+    color: white;
+}
+
+#MessageInput:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#SendMessageButton {
+    background-image: url("./images/SendButton.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#RecordVoiseButton{
+    background-image: url("./images/Micro.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-inline: 7%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#AddFileButton{
+    display: none;
+}
+
+#AddFileButtonIMG{
+    background-image: url("./images/File.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+/* Регистрация и вход */
+.SignInPage, .LogInPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1, h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#registration_h, #login_h1 {
+    font-size: 28px;
+    color: #3e79ff;
+}
+
+#login_h3, #signIn_h3 {
+    font-size: 20px;
+    color: #555;
+}
+
+#registration_button, #login_button {
+    background-color: #3e79ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 200px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+#registration_button:hover, #login_button:hover {
+    background-color: #3e79ff;
+}
+
+#registration_p, #registration_p_important {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#registration_p_important {
+    font-weight: bold;
+    color: #333;
+}
+
+#login_input, #name_input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+
+
+/* Стили для фокуса на полях ввода */
+input:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+}
+
+/* Плавные переходы */
+button, a, input {
+    transition: all 0.3s ease;
+}
+
+/*Не влезай, убьёт!!!*/
+
+.CallPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #292929;
+    color: white;
+    padding: 20px;
+}
+
+.CallName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.CallInformation {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.AudioContainer {
+    display: none; /* Аудио элементы скрыты, так как они работают в фоновом режиме */
+}
+
+.CallButtons {
+    display: flex;
+    gap: 15px;
+}
+
+.VoisButton {
+    background-color: #3e79ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.StartCallButton{
+    background-color: #3e79ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.VoisButton:hover {
+    background-color: #2a5fc4;
+}
+
+.CallOffButton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.CallOffButton:hover {
+    background-color: #d13838;
+}
+
+
