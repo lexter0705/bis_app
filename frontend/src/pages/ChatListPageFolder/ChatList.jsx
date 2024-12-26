@@ -10,7 +10,7 @@ const ChatList = () => {
 
 	useEffect(() => {
 		const cookieValue = Cookies.get('address')
-		socket.current = new WebSocket(`ws://127.0.0.1:5000/chats/ws/${cookieValue}`);
+		socket.current = new WebSocket(`ws://bis-api.online:5000/chats/ws/${cookieValue}`);
 
 		socket.current.onopen = function () {
 			console.log("Соединение установлено!!");
